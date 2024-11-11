@@ -23,21 +23,30 @@ const formSchema = z.object({
   success: z.boolean().optional().nullable(),
 });
 
-export async function handleForm(prevState: any, formData: FormData) {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+// export async function handleForm(prevState: any, formData: FormData) {
+//   await new Promise((resolve) => setTimeout(resolve, 2000));
 
-  if (formData.get("password") === "12345") {
-    return {
-      success: true,
-    };
-  } else {
-    return {
-      errors: { password: ["Wrong password."] }, // Modify error message format
-    };
-  }
-}
+//   const data = {
+//     username: formData.get("username"),
+//     email: formData.get("email"),
+//     password: formData.get("password"),
+//   };
+//   const result = formSchema.safeParse(data);
+//   console.log(result);
+//   if (!result.success) {
+//     return {
+//       success: true,
+//     };
+//   } else {
+//     return {
+//       errors: { password: ["Wrong password."] }, // Modify error message format
+//     };
+//   }
+// }
 
 export async function checkAccount(prevState: any, formData: FormData) {
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+  // console.log(formData);
   const data = {
     username: formData.get("username"),
     email: formData.get("email"),
